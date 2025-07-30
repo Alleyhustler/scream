@@ -98,7 +98,7 @@ body {
 * images
 ******************************************/
 .bg {
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg.png);
   background-size: cover !important;
   /*background-position: 50% 10% !important;*/
   background-position: 50% 50% !important;
@@ -223,24 +223,65 @@ em {
   font-family: 'BryantPro-MediumItalic';
 }
 
-
 .again,
 .glad,
 .type {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 90%;
-  height: auto;
+  width: 80%; /* Slightly narrower for better input feel */
   transform: translate(-50%, -50%);
   font-family: 'BryantPro-Medium';
-  font-size: 45px;
-  font-size: 5vmin;
-  text-align: center;
+  font-size: 16px; /* More standard input size */
+  text-align: left; /* Left align like most inputs */
   color: white;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7), -2px -2px 8px rgba(0,0,0,0.7);
+  background-color: rgba(0, 3, 12, 0.7); /* Semi-transparent dark blue */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px 20px; /* Internal spacing */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Depth shadow */
+  resize: none; /* Prevent manual resizing */
+  outline: none; /* Remove default focus outline */
+  transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Specific styles for the input field */
+.type {
+  min-height: 100px; /* Reasonable minimum height */
+  max-height: 200px; /* Prevent it from getting too tall */
+  overflow-y: auto; /* Add scroll if content exceeds height */
+}
+
+/* Focus state */
+.type:focus {
+  border-color: #95e3ee; /* Light blue accent */
+  box-shadow: 0 0 0 2px rgba(149, 227, 238, 0.3);
+}
+
+/* Placeholder styling */
+.type::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* Different styling for the message text (glad and again) */
+.glad, .again {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: none; /* Make them non-interactive */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .type {
+    width: 90%;
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+}
 .type {
   /*max-height: 20%;*/
   max-height: 220px;
